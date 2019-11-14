@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_14_150844) do
+ActiveRecord::Schema.define(version: 2019_11_14_171959) do
+
+  create_table "cashes", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "deposits", force: :cascade do |t|
     t.string "description"
     t.float "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cash_id"
+    t.index ["cash_id"], name: "index_deposits_on_cash_id"
   end
 
   create_table "paymentings", force: :cascade do |t|
@@ -24,6 +31,8 @@ ActiveRecord::Schema.define(version: 2019_11_14_150844) do
     t.float "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "cash_id"
+    t.index ["cash_id"], name: "index_paymentings_on_cash_id"
   end
 
 end
