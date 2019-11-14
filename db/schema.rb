@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_14_135303) do
+ActiveRecord::Schema.define(version: 2019_11_14_150844) do
 
   create_table "deposits", force: :cascade do |t|
+    t.string "description"
+    t.float "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "paymentings", force: :cascade do |t|
     t.string "description"
     t.float "value"
     t.datetime "created_at", precision: 6, null: false
