@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_14_172707) do
+ActiveRecord::Schema.define(version: 2019_11_14_175930) do
 
   create_table "balances", force: :cascade do |t|
     t.date "date_balance"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 2019_11_14_172707) do
   end
 
   create_table "cashes", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "company_id"
+    t.index ["company_id"], name: "index_cashes_on_company_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
