@@ -1,4 +1,4 @@
-class CashController < ApplicationController
+class CashesController < ApplicationController
   before_action :set_cash, only: [:show, :update, :destroy]
 
   # GET /cashs
