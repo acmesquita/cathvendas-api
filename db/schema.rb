@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_14_171959) do
+ActiveRecord::Schema.define(version: 2019_11_14_172707) do
+
+  create_table "balances", force: :cascade do |t|
+    t.date "date_balance"
+    t.float "value_start"
+    t.float "value_end"
+    t.integer "cash_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cash_id"], name: "index_balances_on_cash_id"
+  end
 
   create_table "cashes", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -35,4 +45,5 @@ ActiveRecord::Schema.define(version: 2019_11_14_171959) do
     t.index ["cash_id"], name: "index_paymentings_on_cash_id"
   end
 
+  add_foreign_key "balances", "cashes"
 end

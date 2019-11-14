@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_balance: 2019-11-14
+  value_start: 1.5
+  value_end: 1.5
+  cash: one
+
+two:
+  date_balance: 2019-11-14
+  value_start: 1.5
+  value_end: 1.5
+  cash: two
