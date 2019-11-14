@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :companies
-  resources :balances
-  resources :registries
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+    get  '/companies'                                          ,to: 'companies#index'
+    post '/companies'                                          ,to: 'companies#create'
+    get  '/companies/:companies_id/cashes/:id'                 ,to: 'cashes#show'
+    post '/companies/:companies_id/cashes/:id/registries'      ,to: 'cashes#create'
 end
